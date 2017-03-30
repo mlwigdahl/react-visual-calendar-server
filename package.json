@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "babel-node ./bin/www"
+    "start": "npm-run-all build dev",
+    "build": "babel --presets es2017-node7 -s -D -d dist/routes routes",
+    "help": "babel --help",
+    "dev": "node bin/www"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
@@ -17,8 +20,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-env": "^1.2.2",
-    "babel-preset-stage-1": "^6.22.0"
+    "babel-preset-es2017-node7": "^0.5.2",
+    "npm-run-all": "^4.0.2"
   }
 }

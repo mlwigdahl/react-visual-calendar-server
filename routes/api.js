@@ -7,18 +7,15 @@ router.get('/logon', function(req, res, next) {
 });
 
 router.get('/user/:userId/calendar', function(req, res, next) {
-  const userId = req.params.userId;
+  let { userId } = req.params;
 
   res.json({ userId: userId, calendar: { stuff: 'stuff' } });
 });
 
 // TODO params not working...
-router.get('/user/:userId/dateRange?:startDate&:endDate', function(req, res, next) {
-  let userId, startDate, endDate;
-  // { userId, startDate, endDate } = req.params; // TODO get rest-spread working through Babel
-  userId = req.params.userId;
-  startDate = req.params.startDate;
-  endDate = req.params.endDate;
+router.get('/user/:userId/dateRange', function(req, res, next) {
+  let { userId } = req.params;
+  let { startDate, endDate } = req.query;
 
   res.json({ userId: userId, startDate: startDate, endDate: endDate });
 })
