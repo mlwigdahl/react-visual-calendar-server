@@ -8,6 +8,7 @@ var helmet = require('helmet');
 
 var index = require('./dist/routes/index');
 var api = require('./dist/routes/api');
+var apitest = require('./dist/routes/apitest');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/api', api);
+app.use('/apitest', apitest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
