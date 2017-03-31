@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm-run-all build dev",
-    "build": "babel --presets es2017-node7 -s -D -d dist/routes routes",
+    "start": "npm-run-all build:routes build:app build:server dev",
+    "build:routes": "babel --presets es2017-node7 -s -D -d dist/routes routes",
+    "build:app": "babel --presets es2017-node7 -s -D -d dist app.js",
+    "build:server": "babel --presets es2017-node7 -s -D -d dist/bin bin",
     "help": "babel --help",
-    "dev": "node bin/www"
+    "dev": "node dist/bin/www.js"
   },
   "dependencies": {
     "body-parser": "^1.16.0",

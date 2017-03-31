@@ -1,6 +1,6 @@
 //var express = require('express');
 
-import * as express from 'express';
+import express from 'express';
 import moment from 'moment';
 
 const router = express.Router();
@@ -297,4 +297,5 @@ router.delete('/user/:userId/date/:dateId/event/:eventId', (req, res, next) => {
     }
 });
 
-module.exports = router;
+export default router;
+//module.exports = router;

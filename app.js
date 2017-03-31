@@ -1,16 +1,16 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var helmet = require('helmet');
+import express from 'express'; //var express = require('express');
+import path from 'path'; //var path = require('path');
+import favicon from 'serve-favicon'; //var favicon = require('serve-favicon');
+import logger from 'morgan'; //var logger = require('morgan');
+import cookieParser from 'cookie-parser'; //var cookieParser = require('cookie-parser');
+import bodyParser from 'body-parser'; //var bodyParser = require('body-parser');
+import helmet from 'helmet'; //var helmet = require('helmet');
 
-var index = require('./dist/routes/index');
-var api = require('./dist/routes/api');
-var apitest = require('./dist/routes/apitest');
+import index from './routes/index'; //const index = require('./dist/routes/index');
+import api from './routes/api'; //const api = require('./dist/routes/api');
+import apitest from './routes/apitest'; //const apitest = require('./dist/routes/apitest');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +20,7 @@ app.use(helmet());
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(logger('dev')); // was 'dev'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -31,14 +31,14 @@ app.use('/api', api);
 app.use('/apitest', apitest);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -48,4 +48,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;
+//module.exports = app;

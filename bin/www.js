@@ -4,22 +4,24 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('react-visual-calendar-server:server');
-var http = require('http');
+import app from '../app'; //var app = require('../app');
+import dbg from 'debug'; //var debug = require('debug')('react-visual-calendar-server:server'); // TODO ES6?
+import http from 'http'; //var http = require('http');
+
+const debug = dbg('react-visual-calendar-server:server');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
