@@ -4,12 +4,12 @@ const router = express.Router();
 
 // app
 
-router.get('/logon', function(req, res, next) {
+router.get('/logon', (req, res, next) => {
     res.status(501).json({ id: 0, name: '', error: 'not implemented yet' });
 });
 
-router.get('/user/:userId/calendar', function(req, res, next) {
-    let { userId } = req.params;
+router.get('/user/:userId/calendar', (req, res, next) => {
+    const { userId } = req.params;
 
     res.status(501).json({ id: 0, name: '', error: 'not implemented yet' });
 });
@@ -23,9 +23,9 @@ router.get('/user/:userId/calendar', (req, res, next) => {
 });
 
 // TODO params not working...
-router.get('/user/:userId/dateRange', function(req, res, next) {
-    let { userId } = req.params;
-    let { startDate, endDate } = req.query;
+router.get('/user/:userId/dateRange', (req, res, next) => {
+    const { userId } = req.params;
+    const { startDate, endDate } = req.query;
 
     res.status(501).json({ id: 0, name: '', error: 'not implemented yet' });
 });

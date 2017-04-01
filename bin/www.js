@@ -4,11 +4,32 @@
  * Module dependencies.
  */
 
-import app from '../app'; //var app = require('../app');
 import dbg from 'debug'; //var debug = require('debug')('react-visual-calendar-server:server'); // TODO ES6?
 import http from 'http'; //var http = require('http');
 
+import app from '../app'; //var app = require('../app');
+
 const debug = dbg('react-visual-calendar-server:server');
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  const port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
 
 /**
  * Get port from environment and store in Express.
@@ -28,27 +49,17 @@ const server = http.createServer(app);
  */
 
 server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
+ * Event listener for HTTP server "listening" event.
  */
 
-function normalizePort(val) {
-  var port = parseInt(val, 10);
-
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
+function onListening() {
+  const addr = server.address();
+  const bind = typeof addr === 'string'
+    ? `Pipe ${addr}`
+    : `Port ${addr.port}`;
+  debug(`Listening on ${bind}`);
 }
 
 /**
@@ -60,18 +71,18 @@ function onError(error) {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  const bind = typeof port === 'string'
+    ? `Pipe ${port}`
+    : `Port ${port}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+      console.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -79,14 +90,5 @@ function onError(error) {
   }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
-}
+server.on('error', onError);
+server.on('listening', onListening);

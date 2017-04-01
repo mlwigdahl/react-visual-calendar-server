@@ -1,0 +1,9 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "linebreak-style": [2, "windows"],
+        "spaced-comment": 0,
+        "indent": 0,
+        "no-unused-vars": 1
+    }
+}

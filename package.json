@@ -3,12 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm-run-all build:routes build:app build:server dev",
+    "start": "npm-run-all build dev",
+    "build": "npm-run-all build:routes build:app build:server",
     "build:routes": "babel --presets es2017-node7 -s -D -d dist/routes routes",
     "build:app": "babel --presets es2017-node7 -s -D -d dist app.js",
     "build:server": "babel --presets es2017-node7 -s -D -d dist/bin bin",
     "help": "babel --help",
-    "dev": "node dist/bin/www.js"
+    "dev": "node dist/bin/www.js",
+    "lint": "eslint app.js bin/www.js routes"
   },
   "dependencies": {
     "body-parser": "^1.16.0",
@@ -24,6 +26,11 @@
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-preset-es2017-node7": "^0.5.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "jest": "^19.0.2",
     "npm-run-all": "^4.0.2"
   }
