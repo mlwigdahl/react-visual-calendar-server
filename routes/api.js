@@ -1,4 +1,4 @@
-import express from 'express'; //var express = require('express');
+import express from 'express';
 
 const router = express.Router();
 
@@ -89,4 +89,3 @@ router.delete('/user/:userId/date/:dateId/event/:eventId', (req, res, next) => {
 });
 
 export default router;
-//module.exports = router;

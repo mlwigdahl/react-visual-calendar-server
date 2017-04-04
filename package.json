@@ -10,7 +10,9 @@
     "build:server": "babel --presets es2017-node7 -s -D -d dist/bin bin",
     "help": "babel --help",
     "dev": "node dist/bin/www.js",
-    "lint": "eslint app.js bin/www.js routes"
+    "lint": "eslint app.js bin/www.js routes",
+    "test": "jest",
+    "test:cover": "npm run test -- --coverage"
   },
   "dependencies": {
     "body-parser": "^1.16.0",

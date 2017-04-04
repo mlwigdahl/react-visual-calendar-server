@@ -1,11 +1,10 @@
-import express from 'express'; //var express = require('express');
+import express from 'express';
+
+import indexRoute from './indexRoute';
 
 const router = express.Router();
 
 /* GET home page. */ // serve the static files...
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', indexRoute.root.get);
 
 export default router;
-//module.exports = router;

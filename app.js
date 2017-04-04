@@ -1,14 +1,14 @@
-import express from 'express'; //var express = require('express');
-import path from 'path'; //var path = require('path');
-import favicon from 'serve-favicon'; //var favicon = require('serve-favicon');
-import logger from 'morgan'; //var logger = require('morgan');
-import cookieParser from 'cookie-parser'; //var cookieParser = require('cookie-parser');
-import bodyParser from 'body-parser'; //var bodyParser = require('body-parser');
-import helmet from 'helmet'; //var helmet = require('helmet');
+import express from 'express';
+import path from 'path';
+import favicon from 'serve-favicon';
+import logger from 'morgan';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import helmet from 'helmet';
 
-import index from './routes/index'; //const index = require('./dist/routes/index');
-import api from './routes/api'; //const api = require('./dist/routes/api');
-import apitest from './routes/apitest'; //const apitest = require('./dist/routes/apitest');
+import index from './routes/index';
+import api from './routes/api';
+import apitest from './routes/apitest';
 
 const app = express();
 
@@ -49,4 +49,3 @@ app.use((err, req, res, next) => {
 });
 
 export default app;
-//module.exports = app;

@@ -4,10 +4,10 @@
  * Module dependencies.
  */
 
-import dbg from 'debug'; //var debug = require('debug')('react-visual-calendar-server:server'); // TODO ES6?
-import http from 'http'; //var http = require('http');
+import dbg from 'debug';
+import http from 'http';
 
-import app from '../app'; //var app = require('../app');
+import app from '../app';
 
 const debug = dbg('react-visual-calendar-server:server');
 
