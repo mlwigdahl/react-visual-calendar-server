@@ -6,7 +6,8 @@ React Visual Calendar Server is the back end for React Visual Calendar, a respon
 
 ## Goals for 0.0.2 -- Full API support + UI testing
 
-    1. Server up and running
+    X 1. Server up and running
     2. Proxying set up in RVC
-    3. At least one API
-    4. Testing structure setup
+    X 3. At least one API
+    X 4. Testing structure setup
+    5. Implement full testing

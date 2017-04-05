@@ -20,7 +20,7 @@ const dates = {
     },
 };
 
-const datesNew = {
+export const datesNew = {
     20170102: {
         events: [3, 4],
     },
@@ -46,12 +46,12 @@ const events = {
     },
 };
 
-const eventsNew = {
+export const eventsNew = {
     3: { startTime: '03:45 PM', endTime: '04:45 PM', endDate: '20170101', icon: 'meeting-icon-url', label: '3:45 meeting 😒😒 (Red conference room)' },
     4: { startTime: '11:30 AM', endTime: '12:30 PM', endDate: '20170101', icon: 'lunch-icon-url', label: 'Lunch! 😁' },
 };
 
-const state = {
+export const state = {
     app: {
         user: {
             id: 1,
